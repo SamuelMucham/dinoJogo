@@ -1,4 +1,5 @@
 import { Link } from "expo-router";
+import React from "react";
 import {
   ImageBackground,
   StyleSheet,
@@ -10,12 +11,12 @@ import {
 export default function HomeScreen() {
   return (
     <ImageBackground
-      source={require("@/assets/images/fundo.webp")}
+      source={require("@/assets/images/fundo9.gif")}
       resizeMode="stretch"
       style={styles.Background}
     >
       <View style={styles.container}>
-        <Link href={"/game"} asChild>
+        <Link href={"/game"} asChild replace>
           <TouchableOpacity style={styles.button}>
             <Text>JOGAR</Text>
           </TouchableOpacity>
@@ -26,7 +27,7 @@ export default function HomeScreen() {
 }
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#684646",
+    backgroundColor: "#ffffff",
     paddingHorizontal: 30,
     paddingVertical: 10,
     borderRadius: 999,
