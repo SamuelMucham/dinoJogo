@@ -1,5 +1,3 @@
-import Dino from "@/components/Dino";
-import Obstacle from "@/components/Obstacle";
 import { useGame } from "@/hooks/gameHook";
 import { Link } from "expo-router";
 import React from "react";
@@ -13,7 +11,6 @@ export default function End(){
         style={s.image} 
         source={require("@/assets/images/fundo1.jpeg")}
         />
-        
     <View>
         <Image source={require("@/assets/images/fundo1.jpeg")} style={s.image}/>
     </View>
@@ -37,7 +34,7 @@ export default function End(){
         <Text style={s.text}>{score}</Text> 
         
         <Link href="/" asChild>
-         <Text style={s.text}>voltar</Text>
+         <Text style={s.button}>voltar</Text>
         </Link>
         </View>
     </View>
@@ -45,9 +42,18 @@ export default function End(){
 }
 
 const s = StyleSheet.create({
+    button: {
+    width:"auto",
+    backgroundColor:"black",
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    borderRadius: 999,
+    color:"white"
+  },
     text:{
         width:"auto",
-        color:"white"
+        fontSize:30,
+        fontWeight:"bold",
     },
     textcontainer:{
         position:"absolute",
@@ -57,14 +63,14 @@ const s = StyleSheet.create({
         gap:10,
         justifyContent:"center",
     },
-     obstaculo: {
+    obstaculo: {
     width: 65,
     height: 65,
     position: "absolute",
     bottom: "30%",
     right: 770,
   },
-     dino: {
+    dino: {
     width: 100,
     height: 200,
     position: "absolute",

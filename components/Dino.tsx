@@ -3,7 +3,6 @@ import  { useEffect } from "react";
 import React, { Easing, Image, StyleSheet } from "react-native";
 import Animated, {
   useAnimatedStyle,
-  useSharedValue,
   withSequence,
   withTiming,
 } from "react-native-reanimated";
@@ -15,10 +14,6 @@ export default function Dino() {
     dinoHeight.value = withSequence(
       withTiming(-100, {
         duration: 400,
-        easing: Easing.linear,
-      }),
-      withTiming(0, {
-        duration: 300,
         easing: Easing.linear,
       }),
       withTiming(
@@ -68,10 +63,10 @@ export default function Dino() {
 const s = StyleSheet.create({
   dino: {
     width: 100,
-    height: 200,
+    height: 100,
     position: "absolute",
     zIndex: 50,
-    top: "35%",
+    bottom:"30%",
     left:50,
   },
   image: {

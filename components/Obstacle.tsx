@@ -7,9 +7,10 @@ import Animated, {
   withTiming,
   useAnimatedReaction,
 } from "react-native-reanimated";
-import goku from "@/assets/bitmaps/goku.json";
 import goku_moving from "@/assets/bitmaps/goku_moving.json";
-import cactus from "@/assets/bitmaps/cactus.json";
+import cactus from "@/assets/bitmaps/obs.json";
+import goku_jump from "@/assets/bitmaps/goku.json";
+import { router } from "expo-router";
 
 export default function Obstacle({ onEnd }: any) {
   const { width } = Dimensions.get("window");
@@ -43,29 +44,27 @@ export default function Obstacle({ onEnd }: any) {
       if (left > right || bottom > left) {
         return;
       }
-      console.log("collision");
       for (let x = left; x < right; x++) {
         for (let y = bottom; y < top; y++) {
-          console.log(x, y);
           const xDino = x - 50;
           const xCactus = x - cactusPosition;
-          const yDino = 80 - (y - dinoHeight.value);
+          const yDino = 100 - (y - dinoHeight.value);
           const yCactus = 65 - y;
-          const goku = dinoHeight.value > 0 ? goku_moving : goku_moving;
+          const goku = dinoHeight.value > 0 ? goku_jump : goku_moving;
+
+          console.log(goku)
 
           if (
-            xDino < 80 &&
+            xDino < 100 &&
             xDino > -1 &&
-            yDino < 80 &&
+            yDino < 100 &&
             yDino > -1 &&
-            xCactus < 65 &&
+            xCactus < 64 &&
             xCactus > -1 &&
-            yCactus < 65 &&
-            yCactus > -1 &&
-            goku[xDino][yDino] &&
-            cactus[xCactus][yCactus]
+            yCactus < 64 &&
+            yCactus > -1
           ) {
-            console.log("pixel colission");
+            router.replace("/end")
           }
         }
       }
