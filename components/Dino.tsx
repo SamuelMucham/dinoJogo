@@ -12,14 +12,14 @@ export default function Dino() {
     
   function Handlejump() {
     dinoHeight.value = withSequence(
-      withTiming(-100, {
-        duration: 400,
+      withTiming(-150, {
+        duration: 600,
         easing: Easing.linear,
       }),
       withTiming(
         0,
         {
-          duration: 400,
+          duration: 800,
           easing: Easing.linear,
         },
         () => stopJump(),
@@ -63,7 +63,7 @@ export default function Dino() {
 const s = StyleSheet.create({
   dino: {
     width: 100,
-    height: 100,
+    height: 114,
     position: "absolute",
     zIndex: 50,
     bottom:"30%",

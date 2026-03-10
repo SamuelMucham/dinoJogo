@@ -37,27 +37,26 @@ export default function Obstacle({ onEnd }: any) {
     },
     (currentValue) => {
       const cactusPosition = width - Math.round(currentValue);
-      const left = Math.max(50, width - currentValue);
-      const right = Math.min(150, width - currentValue + 65);
-      const bottom = Math.max(0, dinoHeight.value);
+      const left = Math.max(50, cactusPosition);
+      const right = Math.min(150, cactusPosition + 65);
+      const bottom = Math.max(0, -dinoHeight.value);
       const top = 65;
-      if (left > right || bottom > left) {
+      if (left > right || bottom > top) {
         return;
       }
       for (let x = left; x < right; x++) {
         for (let y = bottom; y < top; y++) {
           const xDino = x - 50;
           const xCactus = x - cactusPosition;
-          const yDino = 100 - (y - dinoHeight.value);
+          const yDino = 114 - (y - dinoHeight.value);
           const yCactus = 65 - y;
           const goku = dinoHeight.value > 0 ? goku_jump : goku_moving;
 
-          console.log(goku)
 
           if (
             xDino < 100 &&
             xDino > -1 &&
-            yDino < 100 &&
+            yDino < 114 &&
             yDino > -1 &&
             xCactus < 64 &&
             xCactus > -1 &&
